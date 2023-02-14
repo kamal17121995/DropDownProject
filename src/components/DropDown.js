@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 function DropDown({ selected, setSelected }) {
-    const [isActive, setIsActive] = useState(false);
+    const [isActive, setIsActive] = useState(true);
     const options = ['React', 'JavaScript', 'Nodejs', 'HTML', 'CSS']
     return (
         <div className='dropdown'>
@@ -10,13 +10,13 @@ function DropDown({ selected, setSelected }) {
                 {selected}
                 <span className='fas fa-caret-down'></span>
             </div>
-            {isActive && (
+            {isActive || (
                 <div className='dropdown-content'>
                     {options.map(option => (
                         <div
                             onClick={e => {
                                 setSelected(option)
-                                setIsActive(false)
+                                setIsActive(true)
                             }}
                             className='dropdown-item'>{option}
                         </div>
